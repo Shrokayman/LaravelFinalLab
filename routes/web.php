@@ -15,15 +15,16 @@ use App\Http\Controllers\UserController;
 |
 */
 
-Route::get('/', function () {return view('welcome');});
-// Route::get('/posts' ,[PostController::class ,"index"])->name('posts');
-// Route::get('/posts/{id}' ,[PostController::class , "show"])->where('id' , '[0-9]+')->name('posts.show');
-// Route::get('/posts/{id}/edit' ,[PostController::class , "edit"])->name('posts.edit');
-// Route::post('/posts/{id}' , [PostController::class , "update"]);
-// Route::post('/posts/{id}' ,[PostController::class , "destroy"]);
-// Route::get('/posts/create' ,[PostController::class , "create"]);
-// Route::post('/posts' ,[PostController::class , "store"]);
+Route::get('/', function () {
+    return view('welcome');
+});
 
+Route::get('/dashboard', function () {
+    return view('dashboard');
+    // return redirect('/posts');
+})->middleware(['auth'])->name('dashboard');
 
-Route::resource('posts' , PostController::class);
-Route::resource('users' , UserController::class);
+require __DIR__.'/auth.php';
+
+Route::resource('posts' , PostController::class)->middleware('auth');
+Route::resource('users' , UserController::class)->middleware('auth');

@@ -3,8 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Post;
 use App\Http\Requests\StorePostRequest;
+// use App\Http\Controllers\Auth;
+
 
 class PostController extends Controller
 {
@@ -40,7 +43,7 @@ class PostController extends Controller
         Post::create([
             "title"=>$request->title,
             "description" =>$request->description,
-            "user_id" =>1
+            "user_id" =>Auth::id()
         ]);
         return redirect('/posts');
     }

@@ -1,9 +1,5 @@
-<html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    </head>
-    <body>
+@extends('site_layouts.app')
+@section('content')
         <a class="btn btn-primary m-2" href="/posts/create" role="button">Add new post</a>
         <table class="table m-3">
             <tr>
@@ -33,5 +29,4 @@
                 </tr>
             @endforeach
         </table>
-    </body>
-</html>
+@endsection
